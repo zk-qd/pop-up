@@ -36,7 +36,7 @@ options:
 * confirm: 确定回调
 * quit: 取消回调
 * complex: 是否是复杂类型数据  默认false
-* scale： 缩放系数  默认为1   如果是自定义内容建议使用1.1
+* zoom: 缩放系数  默认为1   如果是自定义内容建议使用1.1
 
 # 方法
 * popUp_Template 模板方法
