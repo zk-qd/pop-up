@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./less/popUp.css">
+    <style>
+        #div {
+            width: 1000px;
+            height: 400px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <script src="./js/popUp.js" async></script>
+    <script>
+        window.onload = function() {
+            toast.confirm({
+                title: '删除区域',
+                content: '是否删除该区域',
+                confirm: function() {
+
+                },
+                quit: function() {
+
+                },
+            });
+            toast.warning({
+                title: '删除区域',
+                content: '是否删除该区域',
+                confirm: function() {
+
+                },
+                quit: function() {
+
+                },
+            });
+            toast.confirm({
+                title: '删除区域',
+                content: '<div id="div">gadgdasgs</div>',
+                complex: true,
+                scale: 1.1,
+                confirm: function() {
+
+                },
+                quit: function() {
+
+                },
+            })
+        }
+    </script>
+</body>
+</html>

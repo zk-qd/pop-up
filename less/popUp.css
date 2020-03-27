@@ -1,0 +1,171 @@
+.pop-mask-equal {
+  width: 100%;
+  height: 100%;
+  background: #80808055;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: all 2000ms linear 0;
+  font-size: 14px;
+  color: #343434;
+  text-align: center;
+}
+.pop-closing {
+  display: none;
+  opacity: 0;
+}
+.pop-opening {
+  display: block;
+  opacity: 1;
+}
+.pop-mask-equal .pop-wrapper-equal {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  min-width: 25em;
+  min-height: 15em;
+  box-shadow: 0px 0px 3px #0002;
+  background-color: white;
+}
+.pop-mask-equal .pop-align-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.pop-mask-equal .pop-align-center-simple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.pop-mask-equal .pop-align-center-complex {
+  text-align: center;
+}
+/* 标题部分 */
+.pop-mask-equal .pop-title-equal {
+  height: 2.5em;
+  position: relative;
+  font-weight: 500;
+  text-align: center;
+  color: #000;
+  border-bottom: 1px solid #a0a0a033;
+}
+.pop-mask-equal .pop-close-equal {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%) scale(1.2);
+  cursor: pointer;
+}
+/* 内容部分 */
+.pop-mask-equal .pop-content-equal {
+  min-height: 9.5em;
+  position: relative;
+}
+/* 按钮部分 */
+.pop-mask-equal .pop-button-equal {
+  height: 3em;
+  color: white;
+  position: relative;
+}
+.pop-mask-equal .pop-button-equal .pop-button-confirm,
+.pop-mask-equal .pop-button-equal .pop-button-quit {
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0 0 !important;
+  height: 1.8em;
+  width: 3.4em;
+  margin: 0 3em;
+}
+.pop-mask-equal .pop-button-equal .pop-button-confirm {
+  background-color: #02A7F0;
+  /* box-shadow: 0px 0px 1px #02A755; */
+}
+.pop-mask-equal .pop-button-equal .pop-button-quit {
+  background-color: #D7D7D7;
+  /* box-shadow: 0px 0px 1px #D7D7D755; */
+}
+.pop-mask-equal .pop-button-equal .pop-button-confirm:hover {
+  background-color: #02A7F0CC;
+}
+.pop-mask-equal .pop-button-equal .pop-button-quit:hover {
+  background-color: #02A7F0CC;
+}
+.pop-mask-equal .pop-button-equal .pop-button-quit:hover {
+  background-color: #02A7F0;
+  color: white;
+}
+/* category style */
+.pop-botton-warning .pop-button-quit {
+  display: none;
+}
+/* 
+  默认样式
+  */
+h3 {
+  margin: 0;
+  font-weight: normal;
+}
+i {
+  font-style: normal;
+}
+button {
+  border: 0;
+  color: inherit;
+  font-size: inherit;
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none;
+}
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  font-size: inherit;
+  box-sizing: border-box;
+}
