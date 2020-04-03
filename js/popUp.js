@@ -7,6 +7,7 @@ options:
 * conent: 内容
 * confirm: 确定回调
 * quit: 取消回调
+* opening: 打开窗口回调
 * complex: 是否是复杂类型数据  默认false
 * scale： 缩放系数  默认为1   如果是自定义内容建议使用1.2
 */
@@ -32,6 +33,7 @@ options:
         var complex = options.complex || false;
         var contentClass = popUp_JudgeContentType(complex);
         var scale = options.scale || 1;
+        var opening = options.opening || function() {};
         html.push(
             "<div class='pop-mask-equal pop-closing pop-mask-" + type + "'>"
         )
@@ -84,13 +86,14 @@ options:
         function open() {
             dom.classList.remove('pop-closing');
             dom.classList.add('pop-opening');
+            opening();
         }
         open();
     };
     function popUp_BindEvent(type, options) {
         // 事件回调
-        var confirm = options.confirm;
-        var quit = options.quit;
+        var confirm = options.confirm || function() {};
+        var quit = options.quit || function() {};
 
         var dom = document.querySelector(".pop-mask-" + type);
         // 确定按钮

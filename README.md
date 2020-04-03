@@ -35,6 +35,7 @@ options:
 * conent: 内容
 * confirm: 确定回调
 * quit: 取消回调
+* opening: 打开窗口回调
 * complex: 是否是复杂类型数据  默认false
 * zoom: 缩放系数  默认为1   如果是自定义内容建议使用1.1
 
@@ -67,3 +68,5 @@ options:
 2. 按钮被bootstrap样式所影响 
 
 3. 其他元素样式 被bootstrap影响
+
+4. 添加opening回调
