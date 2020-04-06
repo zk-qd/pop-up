@@ -36,13 +36,14 @@ options:
 * confirm: 确定回调
 * quit: 取消回调
 * complex: 是否是复杂类型数据  默认false
-* scale： 缩放系数  默认为1   如果是自定义内容建议使用1.1
+* scale： 缩放系数  默认为1   如果是自定义内容使用默认值
+* adapterCss: 是否开启适配模式  按照1920来的
 
 # 方法
 * popUp_Template 模板方法
 * popUp_BindEvent 绑定事件
 * popUp_JudgeContentType 内容类型 
-* pop_UpScale 缩放
+* pop_UpScale 缩放 
 
 
 
@@ -67,3 +68,7 @@ options:
 2. 按钮被bootstrap样式所影响 
 
 3. 其他元素样式 被bootstrap影响
+
+4. 新增适配功能
+
+5. 将除fontsize以外的所有px改成了em

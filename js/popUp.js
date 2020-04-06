@@ -32,6 +32,7 @@ options:
         var complex = options.complex || false;
         var contentClass = popUp_JudgeContentType(complex);
         var scale = options.scale || 1;
+        var adapterCss = options.adapterCss;
         html.push(
             "<div class='pop-mask-equal pop-closing pop-mask-" + type + "'>"
         )
@@ -79,7 +80,7 @@ options:
         document.body.insertAdjacentHTML("beforeend", html.join('').trim());
         dom = document.querySelector(".pop-mask-" + type);
         // 控制缩放
-        popUp_Scale(dom, scale);
+        popUp_Scale(dom, scale,adapterCss);
         // 显示 效果
         function open() {
             dom.classList.remove('pop-closing');
@@ -130,11 +131,22 @@ options:
     }
 
     // 缩放
-    function popUp_Scale(container, scale) {
-        var fontSize = window.getComputedStyle(container, null).getPropertyValue('font-size');
-        container.style.fontSize = parseFloat(fontSize) * scale + 'px';
+    function popUp_Scale(container, scale, adapterCss) {
+        // 适配
+        var adapterRatio = 1;
+        let fontSize = null;
+        if (adapterCss) {
+            // 根据1920
+            adapterRatio = window.innerWidth / 1920
+            window.addEventListener('resize', () => {
+                adapterRatio = window.innerWidth / 1920
+                container.style.fontSize = parseFloat(fontSize) * scale * adapterRatio + 'px';
+                console.log(adapterRatio)
+            });
+        }
+        if(!fontSize) fontSize = window.getComputedStyle(container, null).getPropertyValue('font-size');
+        container.style.fontSize = parseFloat(fontSize) * scale * adapterRatio + 'px';
     }
-
     if (!window.toast) {
         window.toast = {};
     }

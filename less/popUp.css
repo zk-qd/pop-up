@@ -7,7 +7,7 @@
   left: 0;
   z-index: 9999;
   transition: all 2000ms linear 0;
-  font-size: 14px;
+  font-size: 15px;
   color: #343434;
   text-align: center;
 }
@@ -53,7 +53,7 @@
   font-weight: 500;
   text-align: center;
   color: #000;
-  border-bottom: 1px solid #a0a0a033;
+  border-bottom: 0.2px solid #a0a0a033;
 }
 .pop-mask-equal .pop-close-equal {
   position: absolute;
