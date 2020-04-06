@@ -35,9 +35,11 @@ options:
 * conent: 内容
 * confirm: 确定回调
 * quit: 取消回调
+* opening: 打开窗口回调
 * complex: 是否是复杂类型数据  默认false
 * scale： 缩放系数  默认为1   如果是自定义内容使用默认值
 * adapterCss: 是否开启适配模式  按照1920来的
+
 
 # 方法
 * popUp_Template 模板方法
@@ -72,3 +74,4 @@ options:
 4. 新增适配功能
 
 5. 将除fontsize以外的所有px改成了em
+6. 添加opening回调
