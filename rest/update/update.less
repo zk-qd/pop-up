@@ -1,0 +1,130 @@
+@import "../../less/popUp.less";
+
+@popUpdateWidth:50em;
+@popUpdateBoxPadding: 0 1em;
+.pop-mask-equal .pop-title-equal {
+    background-color: #0093EE;
+    color: white;
+}
+
+
+// 上传
+.pop-rest-update {
+    background-color: white;
+    padding: 2em;
+    width: @popUpdateWidth;
+    text-align: left;
+}
+
+.pop-rest-update .pop-rest-top {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between;
+}
+
+// h3 
+.pop-rest-update h3 {
+    height: 2em;
+    line-height: 2em;
+}
+.pop-rest-update .download>div,
+.pop-rest-update .update>div,
+.pop-rest-update .pop-rest-bottom>div {
+    height: 8em;
+    line-height: 8em;
+    border: @1px solid #DDDDDD;
+    padding: @popUpdateBoxPadding;
+    width: (@popUpdateWidth - 6em) / 2;
+}
+.pop-rest-update .pop-rest-bottom>div
+{
+    width: 100%;
+}
+
+.pop-rest-update .pop-rest-bottom>h3 {
+    margin-top: 2em;
+}
+// 进度条
+.pop-rest-update .pop-progress {
+    position: relative;
+}
+.pop-rest-update .pop-progress>div {
+    background-color: #E6E6E6;
+    height: .8em;
+    width: 30em;
+    position: absolute;
+    top: 50%;
+    left: 8em;
+    transform: translateY(-50%);
+    z-index: 11;
+    overflow: hidden;
+    border-radius: 1em;
+}
+// 进度
+.pop-rest-update .pop-progress .bar {
+    height: 100%;
+    // background-color: #0093EE;
+}
+// 百分比值
+.pop-rest-update .percentage {
+    position: absolute;
+    top: 50%;
+    left: 40em;
+    transform: translateY(-50%);
+    color: #0093EE;
+}
+.pop-rest-update .pop-progress .img-big-equal {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 66;
+    width: 4em;
+    background: url(./img/folder.png) no-repeat scroll center;
+    background-size: 100% 100%;
+}
+
+// 大图片
+.pop-rest-update .img-big-equal {
+    width: 3.3em;
+    height: 4em;
+    vertical-align: middle;
+    display: inline-block;
+}
+.pop-rest-update .pop-rest-top .img-big-equal {
+    background: url(./img/excel.png) no-repeat scroll center;
+    background-size: 100% 100%;
+    margin-right: 1em;
+}
+
+.pop-rest-update .img-small-equal {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: .3em;
+    margin-top: -0.2em;
+}
+.pop-rest-update .download .img-small-equal {
+    background: url(./img/down.png) no-repeat scroll center;
+    background-size: 100% 100%;
+}
+.pop-rest-update .update .img-small-equal {
+    background: url(./img/up.png) no-repeat scroll center;
+    background-size: 100% 100%;
+}
+
+// 按钮
+.pop-rest-update .download button,
+.pop-rest-update .update button {
+    padding: 0 !important;
+    width: 6em;
+    height: 2em;
+    line-height: 2em;
+    border-radius: 2em;
+    margin-left: 5em;
+    color: white;
+    background-color: #0093EE;
+    box-shadow: 0px 8px 20px 0 #0093EE55;
+}
+

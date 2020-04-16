@@ -37,7 +37,7 @@ options:
 * quit: 取消回调
 * opening: 打开窗口回调
 * complex: 是否是复杂类型数据  默认false
-* scale： 缩放系数  默认为1   如果是自定义内容使用默认值
+* zoom： 缩放系数  默认为1   如果是自定义内容使用默认值
 * adapterCss: 是否开启适配模式  按照1920来的
 
 
@@ -45,7 +45,7 @@ options:
 * popUp_Template 模板方法
 * popUp_BindEvent 绑定事件
 * popUp_JudgeContentType 内容类型 
-* pop_UpScale 缩放 
+* popUp_Zoom 缩放 
 
 
 

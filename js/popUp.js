@@ -9,7 +9,7 @@ options:
 * quit: 取消回调
 * opening: 打开窗口回调
 * complex: 是否是复杂类型数据  默认false
-* scale： 缩放系数  默认为1   如果是自定义内容建议使用1.2
+* zoom： 缩放系数  默认为1   如果是自定义内容建议使用1.2
 */
 
 
@@ -32,7 +32,7 @@ options:
         var content = options.content;
         var complex = options.complex || false;
         var contentClass = popUp_JudgeContentType(complex);
-        var scale = options.scale || 1;
+        var zoom = options.zoom || 1;
         var adapterCss = options.adapterCss;
         var opening = options.opening || function() {};
         html.push(
@@ -82,7 +82,7 @@ options:
         document.body.insertAdjacentHTML("beforeend", html.join('').trim());
         dom = document.querySelector(".pop-mask-" + type);
         // 控制缩放
-        popUp_Scale(dom, scale,adapterCss);
+        popUp_Zoom(dom, zoom,adapterCss);
         // 显示 效果
         function open() {
             dom.classList.remove('pop-closing');
@@ -134,7 +134,7 @@ options:
     }
 
     // 缩放
-    function popUp_Scale(container, scale, adapterCss) {
+    function popUp_Zoom(container, zoom, adapterCss) {
         // 适配
         var adapterRatio = 1;
         let fontSize = null;
@@ -143,12 +143,12 @@ options:
             adapterRatio = window.innerWidth / 1920
             window.addEventListener('resize', () => {
                 adapterRatio = window.innerWidth / 1920
-                container.style.fontSize = parseFloat(fontSize) * scale * adapterRatio + 'px';
+                container.style.fontSize = parseFloat(fontSize) * zoom * adapterRatio + 'px';
                 console.log(adapterRatio)
             });
         }
         if(!fontSize) fontSize = window.getComputedStyle(container, null).getPropertyValue('font-size');
-        container.style.fontSize = parseFloat(fontSize) * scale * adapterRatio + 'px';
+        container.style.fontSize = parseFloat(fontSize) * zoom * adapterRatio + 'px';
     }
     if (!window.toast) {
         window.toast = {};
