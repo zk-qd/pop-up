@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../PKit/less/PKit.css">
+    <link rel="stylesheet" href="../../less/popUp.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="../../../PKit/js/PKit.js" async></script>
+    <script type="text/javascript" src="../../js/popUp.js" async></script>
+    <script type="text/javascript" src="../../../PKit/data/testData.js" async></script>
+    <script>
+
+        window.onload = function () {
+            /* 创建弹窗 */
+            function createPopUpTable() {
+                toast.warning({
+                    title: '弹窗表格示例',
+                    content: `<div><div class="table1"></div><div class="page1"></div></div>`,
+                    complex: true,
+                    zoom: 1,
+                    adapterCss: true,
+                    comfirm() {
+
+                    },
+                    opening() {
+                        createTable();
+                    },
+                });
+
+                /* 创建表格 */
+                function createTable() {
+                    let p1 = new PKit({
+                        adapterCss: true,
+                        // 分页配置
+                        page: {
+                            // 容器选择器
+                            pContainer: '.page1',
+                            // 分页独有id 如果多个分页那么就要设置区分
+                            pId: 'page-serial-js1',
+                            // 一页多少
+                            count: 5,
+                            // 页码
+                            nums: 5,
+                            // 缩放系数
+                            pZoom: 1,
+                            // 是否开启跳转页
+                            pSkip: true,
+                        },
+                        // 表格配置
+                        table: {
+                            // 容器选择器
+                            tContainer: '.table1',
+                            // 表格独有id 如果多个
+                            tId: 'table-serial-js1',
+                            // 字段
+                            names: [
+                                {
+                                    field: 'id',
+                                    hidden: true,
+                                    name: 'id',
+                                },
+                                {
+                                    field: 'name',
+                                    sort: 'chinese',
+
+                                    name: '姓名',
+                                },
+                                {
+                                    field: 'gender',
+                                    name: '性别',
+                                    format: function (value, index, row, datas) {
+                                        if (value == 1) {
+                                            return '男'
+                                        } else if (value == 2) {
+                                            return '女'
+                                        }
+                                    }
+                                },
+                                {
+                                    field: 'operation',
+                                    name: '操作',
+                                    format: function (value, index, row, data) {
+                                        return "<a style='color: blue;' data-id='" + row.id + "'>查看</a>" +
+                                            "&nbsp;&nbsp;<a style='color: red;' data-id='" + row.id + "'>删除</a>";
+                                    }
+                                }
+                            ],
+                            // 缩放系数
+                            tZoom: 1,
+
+                        },
+                        load: function (pageData) {
+                            // 调用接口业务方法 调用自定义方法
+                            // var data = getData(pageData); 
+
+                            // 如果一次性返回全部数据 使用此扩展 将全部数据传入
+                            var data = this.allData(testData, pageData);
+                            // 根据返回数据渲染表格
+                            this.renderTable(data);
+                            // 根据返回的数据渲染分页
+                            this.renderPage(data);
+                        }
+                    });
+                    p1.load(p1.pageData());
+                    return p1;
+                }
+            };
+            createPopUpTable();
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
