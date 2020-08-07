@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,33 +14,34 @@
         }
     </style>
 </head>
+
 <body>
     <script src="./js/popUp.js" async></script>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             toast.confirm({
                 title: '删除区域',
                 content: '是否删除该区域',
-                confirm: function() {
+                confirm: function () {
 
                 },
-                quit: function() {
+                quit: function () {
 
                 },
-                opening: function() {
-                    
+                opening: function () {
+
                 }
             });
             toast.warning({
                 title: '删除区域',
                 content: '是否删除该区域',
                 adapterCss: true,
-                confirm: function() {
+                confirm: function () {
 
                 },
-                quit: function() {
+               /*  quit: function () {
 
-                },
+                }, */
             });
             toast.warning({
                 title: '删除区域',
@@ -47,17 +49,19 @@
                 complex: true,
                 zoom: 1,
                 adapterCss: true,
-                confirm: function() {
+                confirm: function () {
 
                 },
-                quit: function() {
+                // warning没有该方法
+                /* quit: function () {
 
-                },
-                opening: function() {
-                    
+                }, */
+                opening: function () {
+
                 }
             })
         }
     </script>
 </body>
+
 </html>
