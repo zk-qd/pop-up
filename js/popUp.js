@@ -29,12 +29,13 @@ options:
     function popUp_Template(type, options) {
         var html = [];
         var title = options.title || '';
+        var names = options.names || ['取消', '确定'];
         var content = options.content;
         var complex = options.complex || false;
         var contentClass = popUp_JudgeContentType(complex);
         var zoom = options.zoom || 1;
         var adapterCss = options.adapterCss;
-        var opening = options.opening || function() {};
+        var opening = options.opening || function () { };
         html.push(
             "<div class='pop-mask-equal pop-closing pop-mask-" + type + "'>"
         )
@@ -61,10 +62,10 @@ options:
             "<i class='pop-align-center'>"
         )
         html.push(
-            "<button class='pop-button-confirm'>确定</button>"
+            "<button class='pop-button-quit'>" + names[0] + "</button>"
         );
         html.push(
-            "<button class='pop-button-quit'>取消</button>"
+            "<button class='pop-button-confirm'>" + names[1] + "</button>"
         );
         html.push(
             "</i>"
@@ -82,7 +83,7 @@ options:
         document.body.insertAdjacentHTML("beforeend", html.join('').trim());
         dom = document.querySelector(".pop-mask-" + type);
         // 控制缩放
-        popUp_Zoom(dom, zoom,adapterCss);
+        popUp_Zoom(dom, zoom, adapterCss);
         // 显示 效果
         function open() {
             dom.classList.remove('pop-closing');
@@ -93,18 +94,24 @@ options:
     };
     function popUp_BindEvent(type, options) {
         // 事件回调
-        var confirm = options.confirm || function() {};
-        var quit = options.quit || function() {};
+        var confirm = options.confirm || function () { };
+        var quit = options.quit || function () { };
 
         var dom = document.querySelector(".pop-mask-" + type);
         // 确定按钮
         dom.querySelector('.pop-button-confirm').addEventListener('click', function (e) {
-            if (confirm) confirm();
+            // 如果返回的是false 那么就不会关闭窗口
+            if (confirm && confirm() === false) {
+                return;
+            }
             commonJs(e);
         });
         // 取消按钮
         dom.querySelector('.pop-button-quit').addEventListener('click', function (e) {
-            if (quit) quit();
+            // 如果返回的是false 那么就不会关闭窗口
+            if (quit && quit() === false) {
+                return;
+            }
             commonJs(e);
         });
         // 关闭按钮
@@ -147,7 +154,7 @@ options:
                 console.log(adapterRatio)
             });
         }
-        if(!fontSize) fontSize = window.getComputedStyle(container, null).getPropertyValue('font-size');
+        if (!fontSize) fontSize = window.getComputedStyle(container, null).getPropertyValue('font-size');
         container.style.fontSize = parseFloat(fontSize) * zoom * adapterRatio + 'px';
     }
     if (!window.toast) {
