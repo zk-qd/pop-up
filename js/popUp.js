@@ -1,4 +1,9 @@
-
+/*
+ * @Author: zk 
+ * @Date: 2020-08-11 15:01:53 
+ * @Last Modified by: zk
+ * @Last Modified time: 2020-08-11 15:02:34
+ */
 
 
 /*
@@ -17,14 +22,20 @@ options:
 (function (window) {
     // 证实框  有取消按钮 
     var confirm = function (options) {
-        popUp_Template('confirm', options);
-        popUp_BindEvent('confirm', options);
+        return common('confirm', options)
     }
     // 警告框 没有取消只有确定按钮
     var warning = function (options) {
-        popUp_Template('warning', options);
-        popUp_BindEvent('warning', options);
+        return common('warning', options)
     };
+    var common = function (type, options) {
+        popUp_Template(type, options);
+        let { close } = popUp_BindEvent(type, options);
+        return {
+            // 关闭窗口，仅仅关闭
+            close,
+        }
+    }
 
     function popUp_Template(type, options) {
         var html = [];
@@ -79,8 +90,10 @@ options:
         );
         // 判断是否存在
         var dom = document.querySelector(".pop-mask-" + type);
-        if (dom) document.body.removeChild(dom);
-        document.body.insertAdjacentHTML("beforeend", html.join('').trim());
+        /* if (dom) document.body.removeChild(dom);
+        document.body.insertAdjacentHTML("beforeend", html.join('').trim()); */
+        //20200811  v-if 改为 v-show
+        if (!dom) document.body.insertAdjacentHTML("beforeend", html.join('').trim());
         dom = document.querySelector(".pop-mask-" + type);
         // 控制缩放
         popUp_Zoom(dom, zoom, adapterCss);
@@ -129,6 +142,10 @@ options:
             e.stopPropagation();
             e.preventDefault();
             close();
+        }
+
+        return {
+            close,
         }
 
     }
